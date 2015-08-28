@@ -162,7 +162,7 @@ fi
 if ! $not_use_sudo_commands; then
     case $distro in
     debian )
-        PKGS_TO_INSTALL=$PKGS_TO_INSTALL' gcc make build-essential bin86 unzip libpcre3-dev git mercurial python libssl-dev libbz2-dev pkg-config libsqlite3-dev openjdk-6-jre libpq-dev'
+        PKGS_TO_INSTALL=$PKGS_TO_INSTALL' gcc make build-essential bin86 unzip libpcre3-dev git mercurial python libssl-dev libbz2-dev pkg-config libsqlite3-dev openjdk-7-jre libpq-dev'
         PKGS_TO_INSTALL=$PKGS_TO_INSTALL' openssh-client mutt'
         PKGS_TO_INSTALL=$PKGS_TO_INSTALL' ruby ruby-dev'
 
@@ -299,20 +299,19 @@ fi
 # Install local python if necessary
 if [ '!' -x bin/python ]; then
     if [ '!' -f python/bin/buildout ]; then
-        # Workaround for https://github.com/liqd/adhocracy/issues/522
-        ST_TMPDIR="$(pwd)/eggs/build_sh_workarounds/setuptools"
-        if [ '!' -e "$ST_TMPDIR"/setuptools/lib/python*/site-packages/setuptools.pth ]; then
-            # Install setuptools
-            mkdir -p "$ST_TMPDIR"
-            PYTHON_VERSION=$(python -c 'import sys;print("%d.%d" % sys.version_info[:2])')
-            PYTHONPATH="$PYTHONPATH:$ST_TMPDIR/lib/python$PYTHON_VERSION/site-packages/"
-            download https://bitbucket.org/pypa/setuptools/raw/0.7.2/ez_setup.py "${ST_TMPDIR}/ez_setup.py"
-            (cd eggs/build_sh_workarounds/setuptools/ && PYTHONPATH="$PYTHONPATH" PYTHONUSERBASE="$ST_TMPDIR" python ez_setup.py --user)
-        fi
-        (cd python && PYTHONUSERBASE="$ST_TMPDIR" python bootstrap.py)
+        (cd python && python bootstrap.py)
     fi
     (cd python && bin/buildout)
 fi
+
+# Workaround: the custom Pillow in our custom Python brings in a custom libjpeg
+# However, during runtime, the custom libjpeg is not in ld's path.
+if ! bin/python -c 'from PIL import Image' 2>/dev/null ; then
+    ${SUDO_CMD} cp ./python/parts/opt/lib/libjpeg.so.8 /usr/lib/
+    bin/python -c 'from PIL import Image'
+fi
+
+
 # Fix until https://github.com/collective/buildout.python/pull/31 is accepted
 find python/buildout.python/ -name *pyc -delete
 # Fix until https://github.com/collective/buildout.python/pull/32 is accepted
