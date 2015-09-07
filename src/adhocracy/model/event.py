@@ -94,7 +94,8 @@ class Event(object):
         elif not include_hidden:
             # inner join+filter would remove the rows with instance=None here
             query = query.outerjoin(Instance)  # noqa
-            query = query.except_(query.filter(Instance.hidden == True))  # noqa
+            # except_() does not work with MySQL
+            query = query.filter(~Instance.hidden == True)
 
         if event_filter:
             query = query.filter(Event.event.in_(event_filter))
