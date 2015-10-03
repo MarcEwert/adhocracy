@@ -59,9 +59,9 @@ def settings_menu(instance, current):
     return Menu.create(instance, current, OrderedDict([
         ('personal', (_(u'Personal'), True, 'settings')),
         ('login', (_(u'Login'), show_login)),
-        ('notifications', (_('Notifications'),)),
-        ('advanced', (_('Advanced'),)),
-        ('optional', (_('Optional'), show_optional)),
+#        ('notifications', (_('Notifications'),)),
+#        ('advanced', (_('Advanced'),)),
+#        ('optional', (_('Optional'), show_optional)),
     ]))
 
 
