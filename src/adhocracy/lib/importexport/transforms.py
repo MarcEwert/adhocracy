@@ -355,7 +355,7 @@ class InstanceTransform(_Transform):
 
 
 class ProposalTransform(_Transform):
-    _ID_KEY = 'creator'
+    _ID_KEY = 'id'
 
     def __init__(self, options, instance, user_transform):
         super(ProposalTransform, self).__init__(options)
