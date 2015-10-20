@@ -23,7 +23,7 @@ badge_table = Table(
     Column('id', Integer, primary_key=True),
     Column('type', String(40), nullable=False),
     Column('create_time', DateTime, default=datetime.utcnow),
-    Column('title', Unicode(40), nullable=False),
+    Column('title', Unicode(255), nullable=False),
     Column('color', Unicode(7), nullable=False),
     Column('description', Unicode(255), default=u'', nullable=False),
     Column('instance_id', Integer, ForeignKey('instance.id',

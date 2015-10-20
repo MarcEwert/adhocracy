@@ -57,7 +57,7 @@ BADGE_TYPE_MAPPING = {
 
 class BadgeForm(formencode.Schema):
     allow_extra_fields = True
-    title = All(validators.String(max=40, not_empty=True),
+    title = All(validators.String(max=255, not_empty=True),
                 ContainsChar())
     description = validators.String(max=255)
     color = ValidHTMLColor()
