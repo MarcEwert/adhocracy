@@ -30,7 +30,7 @@ EOF
 }
 
 buildout_cfg_file=
-autostart=true
+autostart=false
 setup_services=true
 not_use_sudo_commands=false
 not_use_user_commands=false
@@ -312,6 +312,13 @@ fi
 
 # Install adhocracy
 bin/buildout -c buildout_current.cfg
+
+# Create multi instance support
+sed s/500/1100/ <etc/adhocracy.ini >etc/adhocracy2.ini
+sed s/500/1200/ <etc/adhocracy.ini >etc/adhocracy3.ini
+sed s/500/1300/ <etc/adhocracy.ini >etc/adhocracy4.ini
+sed s/500/1400/ <etc/adhocracy.ini >etc/adhocracy5.ini
+sed s/500/1500/ <etc/adhocracy.ini >etc/adhocracy6.ini
 
 # Install adhocracy interactive script
 echo '#!/bin/sh
