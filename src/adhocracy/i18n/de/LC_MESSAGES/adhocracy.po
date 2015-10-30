@@ -1169,7 +1169,7 @@ msgid "Sort by date of the last comment"
 msgstr "Sortiere nach Zeitpunkt des letzten Kommentars"
 
 msgid "Sort by number of votes for the proposal"
-msgstr "Sortiere nach der Anzahl der Stimmen für diesen Vorschlag"
+msgstr "Sortiere nach der Anzahl der Stimmen für den jeweiligen Vorschlag"
 
 msgid ""
 "First sort by proposals with important badges, then by the difference "
