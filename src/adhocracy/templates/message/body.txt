@@ -1,5 +1,3 @@
-${_("The following message was sent to you by %s:") % c.message.name_from}
-
 ${c.body|n}
 
 --
