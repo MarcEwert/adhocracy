@@ -1136,7 +1136,7 @@ msgid "Dear"
 msgstr "Sehr geehrte(r)"
 
 msgid "[{site_name}] Message from {sender_name}: {subject}"
-msgstr "[{site_name}] Mitteilung von {sender_name}: {subject}"
+msgstr "{subject}"
 
 msgid "Oldest"
 msgstr "Älteste"
