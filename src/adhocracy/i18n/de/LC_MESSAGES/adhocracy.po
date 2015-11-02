@@ -612,7 +612,7 @@ msgstr "Unter dieser E-Mail-Adresse ist kein/e Benutzer*in angemeldet."
 msgid ""
 "you have requested that your password be reset. In order to confirm the "
 "validity of your claim, please open the link below in your browser:"
-msgstr "Sie haben ein neues Passwort für Adhocracy angefordert. Um den Prozess abzuschließen, muss der folgende Link in Ihrem Browser geöffnet werden."
+msgstr "Sie haben ein neues Passwort für das Online-Verfahren angefordert. Um den Prozess abzuschließen, muss der folgende Link in Ihrem Browser geöffnet werden."
 
 #, python-format
 msgid "Login for %s"
