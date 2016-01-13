@@ -64,7 +64,8 @@ class WelcomeRepozeWho(object):
             return None
 
         qs = urlparse.parse_qs(environ['QUERY_STRING'])
-        if 'came_from' in qs and h.site.is_local_url(qs['came_from'][0]):
+        #if 'came_from' in qs and h.site.is_local_url(qs['came_from'][0]):
+        if 'came_from' in qs:
             redirect_url = qs['came_from'][0]
         else:
             from adhocracy.lib.helpers import base_url
