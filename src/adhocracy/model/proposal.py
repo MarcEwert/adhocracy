@@ -242,6 +242,11 @@ class Proposal(Delegateable):
             return None
         return self.description.find_latest_comment_time()
 
+    def last_activity(self):
+        if not self.description:
+            return None
+        return self.description.last_activity()
+
     def user_position(self, user):
         from pylons import tmpl_context as c
         if not user:

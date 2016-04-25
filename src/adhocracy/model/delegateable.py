@@ -153,6 +153,13 @@ class Delegateable(meta.Indexable):
         return (self.delete_time is not None) and \
             self.delete_time <= at_time
 
+    def last_activity(self):
+        last_comment = self.find_latest_comment_time(True)
+        if last_comment == datetime.utcfromtimestamp(0):
+            return self.create_time
+        else:
+            return last_comment
+
     def find_latest_comment_time(self, recursive=False):
         from revision import Revision
         from comment import Comment
