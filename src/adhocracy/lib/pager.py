@@ -295,9 +295,9 @@ def proposals(proposals, default_sort=None, **kwargs):
     sorts = {_("Newest"): sorting.entity_newest,
              _("Newest Comment"): sorting.delegateable_latest_comment,
              _("Most Support"): sorting.proposal_support,
-             _("Mixed"): sorting.proposal_mixed,
+#             _("Mixed"): sorting.proposal_mixed,
              _("Controversy"): sorting.proposal_controversy,
-             _("Alphabetically"): sorting.delegateable_label}
+             _("Alphabetically"): sorting.delegateable_title}
 
     if config.get_bool(u'adhocracy.proposal_pager_inline'):
         row = tiles.proposal.row_inline
@@ -1553,7 +1553,7 @@ NEWEST_COMMENT = SortOption('-order.newestcomment', L_("Newest Comment"),
                             func=sorting.delegateable_latest_comment)
 ACTIVITY = SortOption('-activity', L_("Activity"))
 ALPHA = SortOption('order.title', L_("Alphabetically"),
-                   func=sorting.delegateable_label)
+                   func=sorting.delegateable_title)
 PROPOSAL_SUPPORT = SortOption('-order.proposal.support', L_("Most Support"),
                               description=L_('Yays - nays'),
                               func=sorting.proposal_support)
@@ -1735,7 +1735,7 @@ def get_def_proposal_sort_order():
         default_sorting = config.get(
             'adhocracy.listings.instance_proposal.sorting')
     if default_sorting is None:
-        default_sorting = '-order.proposal.mixed'
+        default_sorting = 'order.title'
     return default_sorting
 
 

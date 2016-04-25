@@ -163,7 +163,8 @@ class Delegateable(meta.Indexable):
         query = query.limit(1)
         latest = query.first()
         if latest is None:
-            t = self.create_time
+#            t = self.create_time
+            t = datetime.utcfromtimestamp(0)
         else:
             t = latest[0]
 
