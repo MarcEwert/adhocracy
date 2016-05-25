@@ -767,8 +767,8 @@ msgstr "%s ist kein Mitglied von %s"
 msgid "%s is banned from the system."
 msgstr "%s ist aus dem System ausgeschlossen."
 
-msgid "You already have a password - use that to log in."
-msgstr "Sie haben bereits ein Passwort - nutzen Sie dieses, um sich einzuloggen."
+msgid "You already have a password - please use that to log in."
+msgstr "Sie haben bereits ein Passwort - bitte nutzen Sie dieses, um sich einzuloggen."
 
 #, python-format
 msgid "The user can now log in via %s"
