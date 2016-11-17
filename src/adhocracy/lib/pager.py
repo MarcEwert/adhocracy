@@ -292,11 +292,11 @@ def proposals(proposals, default_sort=None, **kwargs):
         if def_sort_id is not None:
             default_sort = PROPOSAL_SORTS.by_value[def_sort_id].func
 
-    sorts = {_("Newest"): sorting.entity_newest,
+    sorts = {#_("Newest"): sorting.entity_newest,
              _("Newest Comment"): sorting.delegateable_latest_comment,
-             _("Most Support"): sorting.proposal_support,
+#             _("Most Support"): sorting.proposal_support,
 #             _("Mixed"): sorting.proposal_mixed,
-             _("Controversy"): sorting.proposal_controversy,
+#             _("Controversy"): sorting.proposal_controversy,
              _("Alphabetically"): sorting.delegateable_title}
 
     if config.get_bool(u'adhocracy.proposal_pager_inline'):

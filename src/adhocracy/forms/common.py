@@ -549,8 +549,9 @@ class VariantName(formencode.FancyValidator):
             raise formencode.Invalid(_("No name is given."),
                                      value, state)
 
-        if (var.lower() in FORBIDDEN_NAMES or not
-                VALIDVARIANT.match(var.lower())):
+#        if (var.lower() in FORBIDDEN_NAMES or not
+#                VALIDVARIANT.match(var.lower())):
+        if var.lower() in FORBIDDEN_NAMES:
             raise formencode.Invalid(_("Invalid name: %s") % value,
                                      value, state)
         try:
