@@ -307,7 +307,7 @@ ln -s -f "${buildout_cfg_file}" ./buildout_current.cfg
 HAVE_BUILDOUT_VERSION=$(bin/buildout --version 2>&1 | cut -d ' ' -f 3)
 WANT_BUILDOUT_VERSION=$(sed -n 's#zc\.buildout = ##p' versions.cfg)
 if test "$HAVE_BUILDOUT_VERSION" "!=" "$WANT_BUILDOUT_VERSION"; then
-    bin/python bootstrap.py -c buildout_current.cfg
+    bin/python bootstrap.py -c buildout_current.cfg -v "$WANT_BUILDOUT_VERSION"
 fi
 
 # Install adhocracy
