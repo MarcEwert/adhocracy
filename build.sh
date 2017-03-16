@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DEFAULT_BRANCH=develop
-GIT_URL=https://github.com/DanielNeugebauer/adhocracy
+GIT_URL=https://github.com/MarcEwert/adhocracy
 SERVICE_TEMPLATE=etc/sysv-init.in
 SERVICE_TEMPLATE_URL=https://raw.github.com/liqd/adhocracy/$DEFAULT_BRANCH/$SERVICE_TEMPLATE
 CHECK_PORT_FREE_URL=https://raw.github.com/liqd/adhocracy/$DEFAULT_BRANCH/scripts/check_port_free.py
