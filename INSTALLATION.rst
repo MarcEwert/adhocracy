@@ -44,7 +44,7 @@ terminal:
 
 ::
 
-    wget -nv https://raw.github.com/liqd/adhocracy/develop/build.sh -O build.sh && sh build.sh
+    wget -nv https://raw.github.com/MarcEwert/adhocracy/develop/build.sh -O build.sh && sh build.sh
 
 The script will use sudo to install the required dependencies, and
 install, set up, and start the required services.
